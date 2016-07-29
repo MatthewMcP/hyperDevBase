@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>{{title}}</title>
+      <meta name="Deloitte 2016" content="HR Analyst Challenge">
+      <link id="favicon" rel="icon" href="https://hyperdev.com/favicon.ico" type="image/x-icon">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+  <body>
+    {% include '_header.html' %}
+
+    <main>
+        <h1>Talk to a Marvin! Ask him which fruit is best and where the fruit is </h1>
+        <form id="talk" class="boxedin" onsubmit="return false;">
+          <b>You say:</b> <input id="yousay" name="input" size="90" onkeydown="if (event.keyCode == 13) { doTalk(); }"/>
+          <br/>
+          <input id="talkbutton" type="button" value="talk" onclick="doTalk()"/> 
+        </form>
+        <p id="response"></p>
+    </main>
+
+    {% include '_footer.html' %}
+    {% include '_sharedScriptsAndStyles.html' %}
+    <script src="/talk.js"></script>
+    
+    <script>
+    var pb = new Pandorabot("aiaas.pandorabots.com", "1409612842152", "marvinthehrbot", "a37c4d6ceaeff54c647cf8d65eab1e74");
+      function doTalk() {
+        var input = document.getElementById("yousay").value;
+        document.getElementById("yousay").value = "";
+        pb.talk(input, function(data) {
+          var response = data["responses"];
+          document.getElementById("response").innerHTML = response;
+          console.log(response);
+        });
+      }
+    </script>
+    
+  </body>
+</html>
