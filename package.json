@@ -1,10 +1,7 @@
 {
-	"//1": "describes your app and its dependencies",
-	"//2": "https://docs.npmjs.com/files/package.json",
-	"//3": "updating this file will download and update your packages",
-	"name": "my-hyperdev-app",
+	"name": "my-hyperdev-base-app",
 	"version": "0.0.1",
-	"description": "What am I about?",
+	"description": "HyperDev Base",
 	"main": "server.js",
 	"scripts": {
 		"start": "node server.js"
@@ -13,6 +10,8 @@
 		"hyperweb": "^0.0.13",
 		"nunjucks": "^2.4.2",
 		"aws-sdk": "^2.4.11",
+		"synchronize": "^0.9.15",
+		"body-parser": "^1.15.2",
 		"passport": "^0.3.2",
 		"passport-local": "^1.0.0",
 		"passport-facebook": "^2.1.1",
@@ -20,9 +19,7 @@
 		"passport-google-oauth": "^1.0.0",
 		"connect-flash": "^0.1.1",
 		"bcrypt-nodejs": "^0.0.3",
-		"express-session": "^1.14.0",
-		"synchronize": "^0.9.15",
-		"body-parser": "^1.15.2"
+		"express-session": "^1.14.0"
 	},
 	"engines": {
 		"node": "5.4.1"
