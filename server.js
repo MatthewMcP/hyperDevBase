@@ -9,14 +9,14 @@ var passport = require('passport');
 var flash = require('connect-flash');
 var session = require('express-session');
 
-var passportConfig =  require('./passportConfig.js')(passport); 
-
 app = hyperWeb.blastOff();
+
+datastore.initializeApp(app);
+
+var passportConfig = require('./passportConfig.js')(passport, datastore); 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
-datastore.initializeApp(app);
 
 // required for passport
 app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret

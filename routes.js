@@ -19,10 +19,9 @@ app.get("/home.html", function (request, response) {
 // Passport controls
 // ------------------------
 
-  // process the signup form
-  app.post('/signup', passport.authenticate('local-signup', {
+  app.post('/register', passport.authenticate('local-register', {
       successRedirect : '/profile', // redirect to the secure profile section
-      failureRedirect : '/signup', // redirect back to the signup page if there is an error
+      failureRedirect : '/', // redirect back to the signup page if there is an error
       failureFlash : true // allow flash messages
   }));
 
