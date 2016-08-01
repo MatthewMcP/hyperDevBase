@@ -1,6 +1,5 @@
 var routes = function(app, datastore, passport) {
 
-  
 // ------------------------
 // Pages
 // ------------------------
@@ -11,11 +10,35 @@ app.get("/", function (request, response) {
     });
 });
 app.get("/home.html", function (request, response) {
-
   response.render('home.html', {
     title: "Home"
   });
 });
+
+// ------------------------
+// Passport controls
+// ------------------------
+
+  // process the signup form
+  app.post('/signup', passport.authenticate('local-signup', {
+      successRedirect : '/profile', // redirect to the secure profile section
+      failureRedirect : '/signup', // redirect back to the signup page if there is an error
+      failureFlash : true // allow flash messages
+  }));
+
+app.get('/logout', function(req, res) {
+      req.logout();
+      res.redirect('/');
+  });
+
+function isLoggedIn(req, res, next) {
+    // if user is authenticated in the session, carry on 
+    if (req.isAuthenticated())
+        return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/');
+  }
 
 // ------------------------
 // DATASTORE INITIALIZATION

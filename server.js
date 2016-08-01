@@ -1,5 +1,5 @@
 // server.js
-// where your node app starts
+// where my node app starts
 
 // init project
 var bodyParser = require("body-parser");
@@ -9,7 +9,7 @@ var passport = require('passport');
 var flash = require('connect-flash');
 var session = require('express-session');
 
-// require('./config/passport')(passport); // pass passport for configuration
+var passportConfig =  require('./passportConfig.js')(passport); 
 
 app = hyperWeb.blastOff();
 
@@ -23,6 +23,5 @@ app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secre
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
-
 
 var routes = require("./routes.js")(app, datastore, passport);

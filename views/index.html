@@ -19,43 +19,49 @@
           <div class="spacer_10"></div>
 
           <div class="row">
-            <p>Login</p>
-            <form>
-    		      <p>Username:</p>
-              <input type="text" maxlength="100" placeholder="Username" id="UsernameInput">
-              <button type="submit" id="submitUsernameBtn">Submit Username</button>
-            </form>
-            <div id="existingUserDiv" class="hideByDefault">
-              <p>Password:</p>
-              <input type="text" maxlength="100" placeholder="Password" id="passwordInput">
-              <button type="submit" id="submitPasswordBtn">Login</button>
+            
+            <div>
+              <p>Login</p>
+              <form>
+      		      <p>Username:</p>
+                <input type="text" maxlength="100" placeholder="Username" id="usernameInput">
+                <div class="spacer_5"></div>
+                <p>Password:</p>
+                <input type="text" maxlength="100" placeholder="Password" id="passwordInput">
+                <button type="submit" id="submitPasswordBtn">Login</button>
+                <div class="alert alert-danger fade in hideByDefault" id="loginError">
+      					  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      					  <strong>Error!</strong> Username and password do not match
+      				  </div>
+              </form>
             </div>
             
-            <div id="newUserDiv" class="hideByDefault">
-				      <div class="alert alert-info in">
-					      Currently Passwords are not hashed, please input a simple password that is not used elsewhere.
-				      </div>
-      				<p>New Password:</p>
-      				<input type="text" maxlength="100" placeholder="Password" id="newPassword1Input">
-      				<p>Reenter New Password:</p>
-      				<input type="text" maxlength="100" placeholder="Password" id="newPassword2Input">
-      				<button type="submit" id="createAccountBtn">Create Account and Refresh Page</button>
+            <div>
+              <p>Register</p>
+              <form>
+      		      <p>New Username:</p>
+                <input type="text" maxlength="100" placeholder="Your New Username" id="newUsernameInput">
+                <div class="spacer_5"></div>
+                <p>Password:</p>
+                <div class="alert alert-info in">
+					        Currently Passwords are not hashed, please input a simple password that is not used elsewhere.
+				        </div>
+                <input type="text" maxlength="100" placeholder="Password" id="newPassword1Input">
+                <div class="spacer_5"></div>
+                <input type="text" maxlength="100" placeholder="Reenter Password" id="newPassword2Input">
+                <div class="spacer_5"></div>
+      				  <button type="submit" id="createAccountBtn">Create Account and Refresh Page</button>
+      				  <div class="alert alert-danger fade in hideByDefault" id="passwordNotMatchAlert">
+          				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          				<strong>Error!</strong> Passwords do not match!
+          			</div>
+              </form>
+
+
 			  
-      				<div class="alert alert-danger fade in hideByDefault" id="loginError">
-      					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      					<strong>Error!</strong> Username and password do not match
-      				</div>
+
             </div>
-            
-    			<div class="alert alert-success fade in hideByDefault" id="userRegisteredAlert">
-    				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    				<strong>Success!</strong> User data registered, please re-enter username to log in.
-    			</div>
-			
-    			<div class="alert alert-danger fade in hideByDefault" id="passwordNotMatchAlert">
-    				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    				<strong>Error!</strong> Passwords do not match!
-    			 </div>
+          
           </div>
 
       </div>
